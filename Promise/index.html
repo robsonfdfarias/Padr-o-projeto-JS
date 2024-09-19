@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function buscarDados() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Dados recebidos!");
+                }, 2000);
+            });
+        }
+
+        buscarDados().then(dados => console.log(dados)); // "Dados recebidos!" após 2 segundos
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Pessoa(nome) {
+            this.nome = nome;
+        }
+
+        function decoradorPessoa(pessoa) {
+            pessoa.apresentar = function() {
+                console.log(`Olá, meu nome é ${this.nome}`);
+            };
+            return pessoa;
+        }
+
+        const pessoa = decoradorPessoa(new Pessoa('João'));
+        pessoa.apresentar(); // "Olá, meu nome é João"
+
+    </script>
+</body>
+</html>

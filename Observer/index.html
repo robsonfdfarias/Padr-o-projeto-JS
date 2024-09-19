@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="info" id="info"><button id="enviar">Enviar</button>
+    <br>
+    <div id="ob1"></div>
+    <div id="ob2">----------------</div>
+    <div id="ob3"></div>
+    <script>
+        let info = document.getElementById('info');
+        let enviar = document.getElementById('enviar');
+        let ob1 = document.getElementById('ob1');
+        let ob2 = document.getElementById('ob2');
+        let ob3 = document.getElementById('ob3');
+        class Observador {
+            constructor() {
+                this.observadores = [];
+            }
+
+            adicionarObservador(obs) {
+                this.observadores.push(obs);
+            }
+
+            notificar(data) {
+                this.observadores.forEach(obs => obs(data));
+            }
+        }
+
+        const observador = new Observador();
+        observador.adicionarObservador(data => console.log(`Recebido: ${data}`));
+        observador.adicionarObservador(data => ob1.innerHTML=data);
+        observador.adicionarObservador(data => ob3.innerHTML=data);
+
+        observador.notificar('Atualização de dados!'); // "Recebido: Atualização de dados!"
+
+        enviar.addEventListener('click', function(){
+            if(info.value!='' && info.value!=undefined){
+                observador.notificar(info.value);
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Singleton = (function() {
+            let instancia;
+
+            function criarInstancia() {
+                const objeto = new Object("Sou a instância");
+                return objeto;
+            }
+
+            return {
+                obterInstancia: function() {
+                    if (!instancia) {
+                        instancia = criarInstancia();
+                    }
+                    return instancia;
+                }
+            };
+        })();
+
+        const instancia1 = Singleton.obterInstancia();
+        const instancia2 = Singleton.obterInstancia();
+        console.log(instancia1 === instancia2); // true
+
+    </script>
+</body>
+</html>

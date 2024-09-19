@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Carro(tipo) {
+            this.tipo = tipo;
+        }
+
+        function CarroFactory() {
+            return {
+                criarCarro: function(tipo) {
+                    return new Carro(tipo);
+                }
+            };
+        }
+
+        const factory = CarroFactory();
+        const meuCarro = factory.criarCarro('sedã');
+
+    </script>
+</body>
+</html>
