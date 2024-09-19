@@ -1,1 +1,1 @@
-# Padr-o-projeto-JS
+# Padrão-projeto-JS
